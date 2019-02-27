@@ -1,0 +1,49 @@
+<div class="row justify-content-md-center" >
+   <nav aria-label="paginator">
+  <ul class="pagination">
+      {% if pgno > 1 %}
+      <li class="page-item"><a class="page-link" href="{{pgno-1}}">Previous</a></li>
+      {% else %}
+      <li class="page-item disabled"><a class="page-link" href="1" tabindex="-1">Previous</a></li>
+      {% endif %}
+
+      {% if nofpg < 10 %}
+        {% for site_no in range(1, nofpg) %}
+            <li class="page-item"><a class="page-link" href="{{site_no}}">{{site_no}}</a></li>
+        {% endfor %}
+      {% elif pgno >= nofpg-3 %}
+
+            <li class="page-item"><a class="page-link" href="1">1</a></li>
+            <li class="page-item"><a class="page-link" href="2">2</a></li>
+            <li class="page-item"><a class="page-link" href="3">3</a></li>
+            <li class="page-item disabled"><a class="page-link" href="#">. . .</a></li>
+            <li class="page-item "><a class="page-link" href="{{pgno-2}}">{{pgno-2}}</a></li>
+            <li class="page-item"><a class="page-link" href="{{pgno-1}}">{{pgno-1}}</a></li>
+            <li class="page-item active"><a class="page-link" href="{{pgno}}">{{pgno}}</a></li>
+            {% if pgno < nofpg %}
+            <li class="page-item"><a class="page-link" href="{{pgno+1}}">{{pgno+1}}</a></li>
+            {% endif%}
+      {% else %}
+            {% if pgno > 1 %}
+            <li class="page-item"><a class="page-link" href="{{pgno-1}}">{{pgno-1}}</a></li>
+            {% endif%}
+            <li class="page-item active"><a class="page-link" href="{{pgno}}">{{pgno}}</a></li>
+            <li class="page-item"><a class="page-link" href="{{pgno+1}}">{{pgno+1}}</a></li>
+            <li class="page-item"><a class="page-link" href="{{pgno+2}}">{{pgno+2}}</a></li>
+            <li class="page-item disabled"><a class="page-link" href="#">. . .</a></li>
+            <li class="page-item"><a class="page-link" href="{{nofpg-2}}">{{nofpg-2}}</a></li>
+            <li class="page-item"><a class="page-link" href="{{nofpg-1}}">{{nofpg-1}}</a></li>
+            <li class="page-item"><a class="page-link" href="{{nofpg}}">{{nofpg}}</a></li>
+      {% endif %}
+
+
+
+      {% if pgno < nofpg  %}
+        <li class="page-item"><a class="page-link" href="{{pgno+1}}">Next</a></li>
+      {% else %}
+        <li class="page-item disabled"><a class="page-link" href="nofpg">Next</a></li>
+      {% endif%}
+  </ul>
+</nav>
+
+</div>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sunopis Log Watcher</title>
+        <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/code.css') }}" />
+    </head>
+    <body>
+        {% include 'includes/_navbar.html'%}
+        <main  role="main"  class="container">
+            {% block body%} {% endblock %}
+        </main>
+        {% include 'includes/_footer.html'%}
+        <!--<script type="text/javascript" href="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>-->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <!--<script type="text/javascript">
+
+                function get_log_text(sess_id, step_task_no){
+                    element =  '#collapse_'+sess_id+'_'+step_task_no;
+                    $.getJSON('/api/logtext' , { "session_id": sess_id, "step_task_no" : step_task_no },
+                    function(data) {
+                        console.log(data);
+                        $(element).html(data);
+                    } );
+                };
+        </script>-->
+    </body>
+</html>

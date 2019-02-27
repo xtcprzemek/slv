@@ -1,0 +1,54 @@
+{%extends 'layout.html' %}
+{% block body%}
+<div class="mt-1">
+    {% include 'includes/_session_details.html'%}
+</div>
+<div class="mt-4">
+{% for step in steps %}
+
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-sm-1"><span class="font-weight-bold">{{step.nno}}</span></div>
+                <div class="col-sm-2"><span class="font-weight-bold">{{step.step_name}} </span></div>
+                <div class="col-sm-2">{{step.task_beg}}</div>
+                <div class="col-sm-2">{{step.task_end}}</div>
+            </div>
+        </div>
+        <div class="card-body">
+            {% for step_task in step_tasks%}
+            {% if (step.session_id==step_task.session_id and step.nno==step_task.nno) %}
+
+
+            <div style="margin: 1em 0 0 0;  ">
+                <a class="btn btn-{{step_task.status}} btn-lg btn-block"
+                   id="btn_{{step_task.session_id}}_{{step_task.scen_task_no }}" data-toggle="collapse"
+
+                   href="#collapse_{{step_task.session_id}}_{{step_task.scen_task_no }}" role="button" aria-expanded="false"
+                   aria-controls="collapse_{{step_task.session_id}}_{{step_task.scen_task_no}}">
+                    <table class="table-sm">
+                        <tr>
+                            <td width="10">{{step_task.scen_task_no }}</td>
+                            <td width="250">{{step_task.task_name3}}</td>
+                            <td width="200">{{step_task.task_beg}}</td>
+                            <td width="200">{{step_task.task_end}}</td>
+                        </tr>
+                    </table>
+                </a>
+            </div>
+            <div class="collapse" id="collapse_{{step_task.session_id}}_{{step_task.scen_task_no}}">
+                <div class="card card-body">{% highlight 'sql' %}{{step_task.txt}}{% endhighlight %} </div>
+            </div>
+
+            {% endif %}
+
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endfor %}
+
+{% endblock %}
+
+

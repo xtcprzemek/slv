@@ -1,0 +1,24 @@
+<table class="table table-sm">
+    <thead>
+    <tr>
+        <th scope="row">Session Nr</th>
+        <th scope="row">Session name</th>
+        <th scope="row">Begin time</th>
+        <th scope="row">End time</th>
+        <th scope="row">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for session in sessions %}
+    <tr>
+
+    <tr class=table-{{session.status}}>
+        <th scope="row"><a href="/session/{{session.session_id}}">{{session.session_id}}</a></th>
+        <td scope="row">{{session.session_name}}</td>
+        <td>{{session.sess_beg}}</td>
+        <td>{{session.sess_end}}</td>
+        <td>{{session.sess_status}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
