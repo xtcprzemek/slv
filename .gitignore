@@ -1,3 +1,5 @@
 config.cfg
 
 production.cfg
+__pycache__/
+.idea/
